@@ -13,7 +13,8 @@ export default class Player {
     }
     this.movement = {
       x: 0,
-      y: 0
+      y: 0,
+      speed: 30
     }
 
     this.collision =
@@ -55,19 +56,19 @@ export default class Player {
 
   moveLeft()
   {
-    this.movement.x = -50;
+    this.movement.x = -this.movement.speed;
   }
   moveRight()
   {
-    this.movement.x = 50;
+    this.movement.x = this.movement.speed;
   }
   moveUp()
   {
-    this.movement.y = -50;
+    this.movement.y = -this.movement.speed;
   }
   moveDown()
   {
-    this.movement.y = 50;
+    this.movement.y = this.movement.speed;
   }
 
   stopMovementUpDown()
