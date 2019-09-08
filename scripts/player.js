@@ -16,7 +16,7 @@ export default class Player {
     this.movement = {
       x: 0,
       y: 0,
-      speed: 50
+      speed: 100
     }
 
     this.collision =
@@ -32,7 +32,6 @@ export default class Player {
 
   draw(ctx)
   {
-    ctx.fillStyle = "#FF0000";
     ctx.drawImage(this.image, this.position.x, this.position.y)
     //ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
@@ -83,7 +82,7 @@ export default class Player {
     this.movement.x = 0;
   }
 
-  collisionDetect()
+  collisionDetect(score)
   {
     //Collision with walls
     if (this.collision.y2 >= this.canvasHeight)
@@ -109,5 +108,8 @@ export default class Player {
       //console.log("left side")
       this.position.x = 0;
     }
+
+    //----------------------------------------------
+    //Collision with Score
   }
 }
