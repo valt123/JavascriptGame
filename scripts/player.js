@@ -108,8 +108,5 @@ export default class Player {
       //console.log("left side")
       this.position.x = 0;
     }
-
-    //----------------------------------------------
-    //Collision with Score
   }
 }

@@ -35,7 +35,11 @@ export default class Score
 
   collisionDetect(player)
   {
-    if (this.collision.x1 >= player.collision.x1 && this.collision.x2 <= player.collision.x2 && this.collision.y1 >= player.collision.y1 && this.collision.y2 <= player.collision.y2)
+    //if (this.collision.x1 >= player.collision.x1 && this.collision.x2 <= player.collision.x2 && this.collision.y1 >= player.collision.y1 && this.collision.y2 <= player.collision.y2)
+    if (this.position.x < player.position.x + player.width &&
+        this.position.x + this.width > player.position.x &&
+        this.position.y < player.position.y + player.width &&
+        this.position.y + this.width > player.position.y)
     {
       this.collision.collided = true;
     }

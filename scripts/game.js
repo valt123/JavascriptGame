@@ -42,7 +42,7 @@ function gameLoop(timestamp)
     ctx.fillStyle = "#000000";
     ctx.font = "20px Arial";
     ctx.fillText("Points: " + points, 10, 20);
-
+    //ctx.fillText("timestamp: " + timestamp, 100, 20);
     requestAnimationFrame(gameLoop);
 }
 gameLoop();
