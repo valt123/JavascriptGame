@@ -1,12 +1,13 @@
 export default class Score
 {
-  constructor(canvasWidth, canvasHeight)
+  constructor(canvasWidth, canvasHeight, scoreImg)
   {
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
 
     this.width = 25;
     this.height = 25;
+    this.image = scoreImg;
 
     this.position =
     {
@@ -28,7 +29,8 @@ export default class Score
   draw(ctx)
   {
     ctx.fillStyle = "#FF0000";
-    ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+    ctx.drawImage(this.image, this.position.x, this.position.y)
+    //ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 
   collisionDetect(player)

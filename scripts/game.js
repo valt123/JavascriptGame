@@ -9,10 +9,11 @@ let ctx = canvas.getContext("2d");
 
 //images
 let playerImg = document.getElementById("playerImg");
+let scoreImg = document.getElementById("scoreImg");
 
 //class instant
 let player = new Player(canvas.width, canvas.height, playerImg);
-let score = new Score(canvas.width, canvas.height);
+let score = new Score(canvas.width, canvas.height, scoreImg);
 new InputHandler(player);
 
 //gameLoop
@@ -35,7 +36,7 @@ function gameLoop(timestamp)
     if (score.collision.collided)
     {
       points++
-      score = new Score(canvas.width, canvas.height);
+      score = new Score(canvas.width, canvas.height, scoreImg);
     }
 
     ctx.fillStyle = "#000000";
