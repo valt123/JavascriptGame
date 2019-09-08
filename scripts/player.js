@@ -1,8 +1,10 @@
 export default class Player {
-  constructor(canvasWidth, canvasHeight)
+  constructor(canvasWidth, canvasHeight, playerImg)
   {
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
+
+    this.image = playerImg;
 
     this.width = 50;
     this.height = 50;
@@ -14,7 +16,7 @@ export default class Player {
     this.movement = {
       x: 0,
       y: 0,
-      speed: 30
+      speed: 50
     }
 
     this.collision =
@@ -30,15 +32,16 @@ export default class Player {
 
   draw(ctx)
   {
-    ctx.fillstyle = '#0ff';
-    ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+    ctx.fillStyle = "#FF0000";
+    ctx.drawImage(this.image, this.position.x, this.position.y)
+    //ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 
 
   update(deltaTime)
   {
     if (!deltaTime) return;
-
+    //Player movement
     this.position.x += this.movement.x / deltaTime;
     this.position.y += this.movement.y / deltaTime;
 
@@ -82,22 +85,22 @@ export default class Player {
 
   collisionDetect()
   {
+    //Collision with walls
     if (this.collision.y2 >= this.canvasHeight)
     {
-      console.log("bottom")
-      //this.movement.y = 0;
+      //console.log("bottom")
       this.position.y = this.canvasHeight - this.height;
     }
 
     if (this.collision.y1 <= 0)
     {
-      console.log("Top")
+      //console.log("Top")
       this.position.y = 0;
     }
 
     if (this.collision.x2 >= this.canvasWidth)
     {
-      console.log("right side")
+      //console.log("right side")
       this.position.x = this.canvasWidth - this.width;
     }
 
